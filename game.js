@@ -25,27 +25,31 @@ function start_game(){
     let num = Math.floor((Math.random() * 2) + 1); //makes a random number to choose country by its index
     console.log('Answer: '+data[num]['Name'])
 
-    document.getElementById("next").addEventListener("click",() => get_question(num, i));
-    document.getElementById("guess").addEventListener("click",() => get_guess("guess",num));
-    document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num));
+    document.getElementById("next").addEventListener("click",() => get_question(num, i)); //displays next question
+    document.getElementById("guess").addEventListener("click",() => get_guess("guess",num)); //sees what guess you made
+    document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num)); //^
     
+
     }
 function get_question(num, qnum){
-    document.getElementById('questions').innerHTML += data[num][qnum] + "<br />"
+    if (i > 3){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
+    else{
+    document.getElementById('questions').innerHTML += data[num][qnum] + "<br />" //gets and displays question from database/json
     console.log(data[num][qnum])
-    if (i < 3){
-        i++;
     }
+    i++;
 }
+
 function get_guess(str,num){
-    var guess = document.getElementById(str).value;
+    var guess = document.getElementById(str).value; //finds the name of the button you clicked
     console.log('Guess: '+guess)
     check(guess,num)
 }
 function check(guess,num){
-    if (guess == data[num]['Name']){
+    if (guess == data[num]['Name']){ //compares name of button clicked to the name of country selected in start_game()
     console.log("you win");
     win = true;
+    return win
     }
     else{
         console.log("incorrect")
