@@ -15,19 +15,21 @@ data = {
     }}
 let i = 1;
 let win = false;
+let num = 1
+function load(){ //initiallizes the guess and next question buttons. Called on load
+document.getElementById("next").addEventListener("click",() => get_question(num, i)); //displays next question
+document.getElementById("guess").addEventListener("click",() => get_guess("guess",num)); //sees what guess you made
+document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num)); //^
+}
 function start_game(){
-    if (win == true){
-        console.log("end")
-        return false
-    }
     i = 1
     document.getElementById('questions').innerHTML = "";
-    let num = Math.floor((Math.random() * 2) + 1); //makes a random number to choose country by its index
+    num = Math.floor((Math.random() * 2) + 1); //makes a random number to choose country by its index
     console.log('Answer: '+data[num]['Name'])
+    document.getElementById('questions').innerHTML += data[num][i] + "<br />" //displays the first question as soon as you click start
+    i++;
 
-    document.getElementById("next").addEventListener("click",() => get_question(num, i)); //displays next question
-    document.getElementById("guess").addEventListener("click",() => get_guess("guess",num)); //sees what guess you made
-    document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num)); //^
+    
     
 
     }
