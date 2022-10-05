@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>what</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+     crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+   integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+   crossorigin=""></script>
+    <style type="text/css">
+        .leaflet-container{background-color:#63b0a5a9;}
+    </style>
+</head>
+
+<body>
+    <div id="map" style="width: 300px; height: 300px"></div>
+    <script>
+
+    var map = L.map('map').setView([39.74739, -105], 4)
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+
+    //This might be wrong
+    var myGeoJSONPath = JSON.parse(map.geoJson);
+
+    var myCustomStyle = {
+            stroke: false,
+            fill: true,
+            fillColor: yellow,
+            fillOpacity: 1
+        }
+
+    $.getJSON(myGeoJSONPath,function(data){
+            L.geoJson(data, {
+                clickable: true,
+                style: myCustomStyle
+            }).addTo(map);
+        })
+        //I think both the map and json data are loading, but
+        //I don't know how to extract the json data if I click
+
+        var cordinates = 
+
+        window.onload = function() {
+       //when the document is finished loading, replace everything
+       //between the <a ...> </a> tags with the value of splitText
+   document.getElementById("myLink").innerHTML=splitText;
+} 
+    </script>
+    <a id="myLink" href = test.html></a>
+    
+</body>
+</html>
