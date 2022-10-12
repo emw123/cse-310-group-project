@@ -18,9 +18,9 @@ let i = 1;
 let win = false;
 let num = 1
 function load(){ //initiallizes the guess and next question buttons. Called on load
-document.getElementById("next").addEventListener("click",() => get_question(num, i)); //displays next question
-document.getElementById("guess").addEventListener("click",() => get_guess("guess",num)); //sees what guess you made
-document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num)); //^
+    document.getElementById("next").addEventListener("click",() => get_question(num, i)); //displays next question
+    document.getElementById("guess").addEventListener("click",() => get_guess("guess",num)); //sees what guess you made
+    document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num)); //^
 }
 
 function start_game(){
@@ -47,7 +47,7 @@ function get_guess(str,num){
     check(guess,num)
 }
 function check(guess,num){
-    if (guess == data[num]['Name']){ //compares name of button clicked to the name of country selected in start_game()
+    if (guess === data[num]['Name']){ //compares name of button clicked to the name of country selected in start_game()
     console.log("you win");
     win = true;
     return win
@@ -57,4 +57,4 @@ function check(guess,num){
     }
 }
 
-export default start_game
+export {start_game, load}
