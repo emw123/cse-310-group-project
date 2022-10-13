@@ -17,7 +17,7 @@ let data = {
 let i = 1;
 let win = false;
 let num = 1
-function load(){ //initiallizes the guess and next question buttons. Called on load
+function load(){ //initializes the guess and next question buttons. Called on load
     document.getElementById("next").addEventListener("click",() => get_question(num, i)); //displays next question
     document.getElementById("guess").addEventListener("click",() => get_guess("guess",num)); //sees what guess you made
     document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num)); //^
