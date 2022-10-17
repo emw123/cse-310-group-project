@@ -19,6 +19,7 @@ let win = false;
 let num = 1
 function load(){ //initiallizes the guess and next question buttons. Called on load
     document.getElementById("next").addEventListener("click",() => get_question(num, i)); //displays next question
+    document.getElementById("start").addEventListener("click",() => start_game());
     document.getElementById("guess").addEventListener("click",() => get_guess("guess",num)); //sees what guess you made
     document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num)); //^
 }
