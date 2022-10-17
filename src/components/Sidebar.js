@@ -1,4 +1,4 @@
-import game, {start_game} from '../game/game.js'
+import React from 'react'
 
 function Sidebar() {
   return (
