@@ -14,13 +14,16 @@ let data = {
         3:"question 2-3"
     }
 }
+
 let i = 1;
 let win = false;
 let num = 1
-function load(){ //initiallizes the guess and next question buttons. Called on load
-document.getElementById("next").addEventListener("click",() => get_question(num, i)); //displays next question
-document.getElementById("guess").addEventListener("click",() => get_guess("guess",num)); //sees what guess you made
-document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num)); //^
+
+function load(){ //initializes the guess and next question buttons. Called on load
+    document.getElementById("next").addEventListener("click",() => get_question(num, i)); //displays next question
+    document.getElementById("guess").addEventListener("click",() => get_guess("guess",num)); //sees what guess you made
+    document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num)); //^
+    document.getElementById('start').addEventListener('click',()=> start_game())
 }
 
 function start_game(){
@@ -36,7 +39,7 @@ function get_question(num, qnum){
     if (i > 3){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
     else{
     document.getElementById('questions').innerHTML += data[num][qnum] + "<br />" //gets and displays question from database/json
-    console.log(data[num][qnum])
+    // console.log(data[num][qnum])
     }
     i++;
 }
@@ -47,7 +50,7 @@ function get_guess(str,num){
     check(guess,num)
 }
 function check(guess,num){
-    if (guess == data[num]['Name']){ //compares name of button clicked to the name of country selected in start_game()
+    if (guess === data[num]['Name']){ //compares name of button clicked to the name of country selected in start_game()
     console.log("you win");
     win = true;
     return win
@@ -57,4 +60,4 @@ function check(guess,num){
     }
 }
 
-export default start_game
+export {start_game, load}

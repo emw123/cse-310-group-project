@@ -1,4 +1,4 @@
-import start_game from '../game/game.js'
+import React from 'react'
 
 function Sidebar() {
   return (
@@ -8,10 +8,11 @@ function Sidebar() {
         </nav>
         <div className='sidebarText'>
             <p id='questions'></p>
-            <p id='guess'></p>
-            <p id='guess2'></p>
-            <p id='next'></p>
-            <button onClick={start_game}>Start</button>
+
+            <button id='start'>Start</button>
+            <button id='next'>Next</button>
+            <button id='guess'>USA</button>
+            <button id='guess2'>Mexico</button>
         </div>
         
     </div>
