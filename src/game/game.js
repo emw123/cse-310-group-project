@@ -53,7 +53,7 @@ function get_question(num, qnum){
 }
 
 function get_guess(str,num){
-    var guess = document.getElementById(str).value; //finds the name of the button you clicked
+    var guess = document.getElementById(str).innerHTML; //finds the name of the button you clicked
     console.log('Guess: '+guess)
     check(guess,num)
 }
