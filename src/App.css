@@ -49,13 +49,23 @@ nav{
 
 .sidebarText{
   padding:10px;
-  margin:0px;
+  margin:0;
+  gap:10px;
 }
 
 .sidebarText p{
-  margin:0;
+  margin:5px;
 }
 
 .map{
   padding:10px;
+}
+
+.leaflet-container{
+  width: 100vw;
+  height: 100vh;
+}
+
+.questions{
+  height: 100px;
 }
