@@ -4,13 +4,36 @@
   font-family: 'Inter Tight', sans-serif;
 }
 
-.app{
-  display: grid;
-  grid-template-columns: 25% auto;
+body, html, #root{
+  height:100%;
 }
 
-.sidebar{
+button{
+  color:white;
+  background-color: #007ad1;
+  border:none;
+  border-radius: 5px;
+  padding:10px 20px;
+  margin:5px;
+}
+
+button:hover{
+  color:white;
+  background-color: #016bbf;
+  cursor: pointer;
+}
+
+.App{
+  display: grid;
+  grid-template-columns: 25% auto;
+  height:100%;
+}
+
+.Sidebar{
+  display:flex;
+  flex-flow: column;
   border-right: solid black 1px;
+  height:100%;
 }
 
 nav{
@@ -26,11 +49,12 @@ nav{
 
 .sidebarText{
   padding:10px;
-  margin:0px;
+  margin:0;
+  gap:10px;
 }
 
 .sidebarText p{
-  margin:0;
+  margin:5px;
 }
 
 .map{
@@ -40,4 +64,8 @@ nav{
 .leaflet-container{
   width: 100vw;
   height: 100vh;
+}
+
+.questions{
+  height: 100px;
 }

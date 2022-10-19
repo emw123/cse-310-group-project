@@ -8,9 +8,9 @@ import Sidebar from './components/Sidebar'
 import Map from './components/Map'
 
 function App() {
-  useEffect(()=>{load()}, [])
+  useEffect(()=> load(), [])
   return (
-    <div className='app'>
+    <div className='App'>
       <Sidebar/>
       <Map/>
     </div>
