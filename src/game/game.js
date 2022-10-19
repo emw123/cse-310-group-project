@@ -20,7 +20,6 @@ let win = false;
 let num = 1
 
 function load(){ //initializes the guess and next question buttons. Called on load
-    console.log('loaded')
     const nextButton=document.getElementById("next")
     nextButton.addEventListener("click",() => get_question(num, i)); //displays next question
     nextButton.textContent='Start'
