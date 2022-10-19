@@ -17,6 +17,12 @@ button{
   margin:5px;
 }
 
+button:hover{
+  color:white;
+  background-color: #016bbf;
+  cursor: pointer;
+}
+
 .App{
   display: grid;
   grid-template-columns: 25% auto;

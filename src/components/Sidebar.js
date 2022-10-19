@@ -9,8 +9,7 @@ function Sidebar() {
         <div className='sidebarText'>
             <p id='questions'></p>
 
-            <button id='start'>Start</button>
-            <button id='next'>Next</button>
+            <button id='next'></button>
             <button id='guess'>USA</button>
             <button id='guess2'>Mexico</button>
         </div>
