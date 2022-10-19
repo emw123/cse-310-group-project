@@ -2,7 +2,7 @@ import React from 'react'
 
 function Sidebar() {
   return (
-    <div className='sidebar'>
+    <div className='Sidebar'>
         <nav>
             <h1 className='title'>Geography Game</h1>
         </nav>

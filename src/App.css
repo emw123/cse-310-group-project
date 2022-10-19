@@ -4,13 +4,30 @@
   font-family: 'Inter Tight', sans-serif;
 }
 
-.app{
-  display: grid;
-  grid-template-columns: 25% auto;
+body, html, #root{
+  height:100%;
 }
 
-.sidebar{
+button{
+  color:white;
+  background-color: #007ad1;
+  border:none;
+  border-radius: 5px;
+  padding:10px 20px;
+  margin:5px;
+}
+
+.App{
+  display: grid;
+  grid-template-columns: 25% auto;
+  height:100%;
+}
+
+.Sidebar{
+  display:flex;
+  flex-flow: column;
   border-right: solid black 1px;
+  height:100%;
 }
 
 nav{
