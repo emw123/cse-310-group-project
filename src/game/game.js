@@ -22,10 +22,10 @@ let num = 1
 function load(){ //initializes the guess and next question buttons. Called on load
     console.log('loaded')
     const nextButton=document.getElementById("next")
-    nextButton.addEventListener("click",() => get_question(num, i)); //displays next question
+    nextButton.addEventListener("click",() => get_question(false, num, i)); //displays next question
     nextButton.textContent='Start'
-    document.getElementById("guess").addEventListener("click",() => get_guess("guess",num)); //sees what guess you made
-    document.getElementById("guess2").addEventListener("click",() => get_guess("guess2",num)); //^
+    document.getElementById("guess").addEventListener("click",() => get_question(get_guess("guess",num),num,i)); //sees what guess you made
+    document.getElementById("guess2").addEventListener("click",() => get_question(get_guess("guess2",num),num,i)); //^
 }
 
 function start_game(){
@@ -38,7 +38,8 @@ function start_game(){
     document.getElementById("next").textContent='Next'
 }
 
-function get_question(num, qnum){
+function get_question(bool, num, qnum){
+    if (bool == false) {
     if (document.getElementById('questions').innerHTML === ""){
         start_game()
     }
@@ -49,22 +50,23 @@ function get_question(num, qnum){
         // console.log(data[num][qnum])
         }
         i++;
-    }
+    }}
 }
 
 function get_guess(str,num){
     var guess = document.getElementById(str).innerHTML; //finds the name of the button you clicked
     console.log('Guess: '+guess)
-    check(guess,num)
+    var bool = check(guess,num)
+    return bool;
 }
 function check(guess,num){
     if (guess === data[num]['Name']){ //compares name of button clicked to the name of country selected in start_game()
     console.log("you win");
-    win = true;
-    return win
+    return true;
     }
     else{
         console.log("incorrect")
+        return false
     }
 }
 
