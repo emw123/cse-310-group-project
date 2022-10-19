@@ -7,11 +7,11 @@ function Sidebar() {
             <h1 className='title'>Geography Game</h1>
         </nav>
         <div className='sidebarText'>
-            <p id='questions'></p>
-
             <button id='next'></button>
             <button id='guess'>USA</button>
             <button id='guess2'>Mexico</button>
+
+            <p id='questions'></p>
         </div>
         
     </div>
