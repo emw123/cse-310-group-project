@@ -16,7 +16,6 @@ let data = {
 }
 
 let i = 1;
-let win = false;
 let num = 1
 
 function load(){ //initializes the guess and next question buttons. Called on load
@@ -61,6 +60,7 @@ function get_guess(str,num){
 function check(guess,num){
     if (guess === data[num]['Name']){ //compares name of button clicked to the name of country selected in start_game()
     console.log("you win");
+    document.getElementById('questions').innerHTML = "You win"
     return true;
     }
     else{
