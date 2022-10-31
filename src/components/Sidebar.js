@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Sidebar() {
+
   return (
     <div className='Sidebar'>
         <nav>
@@ -13,7 +14,7 @@ function Sidebar() {
 
             <p id='questions'></p>
         </div>
-        
+
     </div>
   );
 }

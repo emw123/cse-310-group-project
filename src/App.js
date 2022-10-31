@@ -21,7 +21,8 @@ function App() {
       );
     });
     console.log({ country });
-  }, load(), [])
+    load();
+  }, [])
 
   const submit = (e) => {
     e.preventDefault();
