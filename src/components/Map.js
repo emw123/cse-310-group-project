@@ -1,16 +1,30 @@
 import '../App.css';
 import React from 'react';
-import { MapContainer, TileLayer, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, useMapEvent} from 'react-leaflet'
+
+
+//This logs the latitude and longitude in console
+function MyComponent() {
+  const map = useMapEvent('click', (e) => {
+    console.log([e.latlng.lat,e.latlng.lng]);
+    
+  })
+
+  return null
+}
+
 
 function Map() {
   
   return (
-    <MapContainer center={[35, -95]} zoom={3} scrollWheelZoom={false}>
+
+    <MapContainer center={[51.505, -0.09]} zoom={3} scrollWheelZoom={true}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    </MapContainer>
+    <MyComponent />
+  </MapContainer>
   );
 }
   
