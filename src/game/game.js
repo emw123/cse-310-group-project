@@ -2,6 +2,7 @@ import db from "../firebase"
 import {doc, getDocs, collection} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import App from "../App"
+import firebaseData from "../firebaseData";
 
 const auth = getAuth();
 createUserWithEmailAndPassword(auth, 'bsojn27@gmail.com', '123456')
@@ -51,7 +52,8 @@ getDocs(ref)
         snapshot.docs.forEach((doc) => {
           countries.push({ ...doc.data()})
         })
-        console.log(countries) //displays documents when the page was loaded
+        console.log(countries); //displays documents when the page was loaded
+        console.log(country);
     })
 }
 function start_game(){
@@ -59,6 +61,7 @@ function start_game(){
     //console.log(doc(db,'country','canada'));
     // console.log(db.collection('country')['canada'])
     //console.log(App);
+    console.log(firebaseData);
     i = 1
     document.getElementById('questions').innerHTML = "";
     num = Math.floor((Math.random() * 2) + 1); //makes a random number to choose country by its index
@@ -70,6 +73,7 @@ function start_game(){
 
 function get_question(bool, num, qnum){
     if (bool === false) {
+        console.log(firebaseData);
     if (document.getElementById('questions').innerHTML === ""){
         start_game()
     }
