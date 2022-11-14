@@ -1,5 +1,20 @@
+import db from "../firebase"
+import {doc, getDocs, collection} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import App from "../App"
 
-
+const auth = getAuth();
+createUserWithEmailAndPassword(auth, 'bsojn27@gmail.com', '123456')
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
 let data = {
     1:{
         Name: "USA",
@@ -28,7 +43,22 @@ function load(){ //initializes the guess and next question buttons. Called on lo
     document.getElementById("guess2").addEventListener("click",() => get_question(get_guess("guess2",num),num,i)); //^
 }
 
+function theDocs(){
+const ref = collection(db, 'country')
+getDocs(ref)
+    .then((snapshot) => {
+        let countries = [];
+        snapshot.docs.forEach((doc) => {
+          countries.push({ ...doc.data()})
+        })
+        console.log(countries) //displays documents when the page was loaded
+    })
+}
 function start_game(){
+    //theDocs();n
+    //console.log(doc(db,'country','canada'));
+    // console.log(db.collection('country')['canada'])
+    //console.log(App);
     i = 1
     document.getElementById('questions').innerHTML = "";
     num = Math.floor((Math.random() * 2) + 1); //makes a random number to choose country by its index
@@ -39,7 +69,7 @@ function start_game(){
 }
 
 function get_question(bool, num, qnum){
-    if (bool == false) {
+    if (bool === false) {
     if (document.getElementById('questions').innerHTML === ""){
         start_game()
     }

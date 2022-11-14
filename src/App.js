@@ -20,7 +20,7 @@ function App() {
         }))
       );
     });
-    console.log({ country });
+    console.log(country);
     load();
   }, [])
 
@@ -50,3 +50,4 @@ function App() {
 }
 
 export default App;
+
