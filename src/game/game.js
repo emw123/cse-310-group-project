@@ -15,7 +15,7 @@ function start_game(){
     //console.log(firebaseData[0]);
     i = 1
     document.getElementById('questions').innerHTML = "";
-    num = Math.floor((Math.random() * 2) + 1); //makes a random number to choose country by its index
+    num = Math.floor((Math.random() * 4) + 1); //makes a random number to choose country by its index
     console.log('Answer: '+firebaseData[num]['id'])
     document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact1"] + "<br />" //displays the first question as soon as you click start
     i++
