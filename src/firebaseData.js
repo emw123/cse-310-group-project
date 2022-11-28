@@ -21,14 +21,9 @@ let countries = [];
 getDocs(ref)
     .then((snapshot) => {
         
-        //snapshot.docs.forEach((doc) => {
-          countries.push((snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))))
-          
-          //countries.push({ ...doc.data()})
-        //})
+        snapshot.docs.forEach((doc) => { 
+          countries.push({id : doc.id, data: { ...doc.data()}})
+        })
         //console.log(countries) //displays documents when the page was loaded
     })
 //var ref = database.ref('country');

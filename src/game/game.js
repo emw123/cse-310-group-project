@@ -46,24 +46,20 @@ function load(){ //initializes the guess and next question buttons. Called on lo
     console.log(firebaseData.length);
 }
 
-function theDocs(){
-const ref = collection(db, 'country')
-getDocs(ref)
-    .then((snapshot) => {
-        let countries = [];
-        snapshot.docs.forEach((doc) => {
-          countries.push({ ...doc.data()})
-        })
-        console.log(countries); //displays documents when the page was loaded
-        console.log(country);
-    })
-}
+// function theDocs(){
+// const ref = collection(db, 'country')
+// getDocs(ref)
+//     .then((snapshot) => {
+//         let countries = [];
+//         snapshot.docs.forEach((doc) => {
+//           countries.push({ ...doc.data()})
+//         })
+//         console.log(countries); //displays documents when the page was loaded
+//         console.log(country);
+//     })
+// }
 function start_game(){
-    //theDocs();n
-    //console.log(doc(db,'country','canada'));
-    // console.log(db.collection('country')['canada'])
-    //console.log(App);
-    console.log(firebaseData);
+    console.log(firebaseData[0]);
     i = 1
     document.getElementById('questions').innerHTML = "";
     num = Math.floor((Math.random() * 2) + 1); //makes a random number to choose country by its index
