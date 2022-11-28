@@ -1,9 +1,5 @@
-//import db from "./firebase"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-// import firebase from 'firebase/compat/app';
-import { getFirestore, doc, getDocs, collection, deleteDoc,
-  setDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-//import { getDatabase, ref, onValue} from "firebase/database";
+import { getFirestore, getDocs, collection } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyAd7ejCkuFATzSxaVB9lWpIC-Seqw2F6M4",
   authDomain: "mapgamegentlebadgers.firebaseapp.com",
@@ -24,9 +20,7 @@ getDocs(ref)
         snapshot.docs.forEach((doc) => { 
           countries.push({id : doc.id, data: { ...doc.data()}})
         })
-        //console.log(countries) //displays documents when the page was loaded
     })
-//var ref = database.ref('country');
 
 // declare an empty array
 let firebaseData = countries;
