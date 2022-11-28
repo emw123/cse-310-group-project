@@ -45,15 +45,7 @@ function App() {
     <div className='App'>
       <Sidebar/>
       <Map/>
-      <input
-          type="text"
-          placeholder="country"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-        />
-      <button onClick={submit}>Submit</button>
     </div>
-    
   );
 }
 
