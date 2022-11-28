@@ -24,8 +24,6 @@ function App() {
         }))
       );
     });
-    console.log("test");
-    console.log();
     load();
   }, [])
 

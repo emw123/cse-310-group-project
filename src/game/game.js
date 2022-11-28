@@ -42,6 +42,8 @@ function load(){ //initializes the guess and next question buttons. Called on lo
     nextButton.textContent='Start'
     document.getElementById("guess").addEventListener("click",() => get_question(get_guess("guess",num),num,i)); //sees what guess you made
     document.getElementById("guess2").addEventListener("click",() => get_question(get_guess("guess2",num),num,i)); //^
+    console.log(firebaseData);
+    console.log(firebaseData.length);
 }
 
 function theDocs(){
