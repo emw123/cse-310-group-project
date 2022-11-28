@@ -3,23 +3,19 @@ import React from 'react';
 import { MapContainer, TileLayer, useMapEvent, Polygon} from 'react-leaflet'
 import features from '../map/map.js'
 
+function Map(props) {
+  const countryPolygons=features.map( features=>
+    <Polygon 
+      pathOptions={{ color: 'clear' }} 
+      positions={(features.geometry.coordinates[0]) } 
+      eventHandlers={({
+        mouseover: () => {
+          props.setCountry(features.properties.name)
+          // console.log(features.properties.name)
+        },
+      })}
+    />);
 
-const countryPolygons=features.map( features=> <Polygon 
-  pathOptions={{ color: 'clear' }} 
-  positions={(features.geometry.coordinates[0]) } 
-  eventHandlers={({
-    click: () => {
-      console.log(features.properties.name)
-    },
-  })}
-
-/>);
-
-
-
-
-function Map() {
-  
   return (
 
     <MapContainer center={[35, -90]} zoom={3} scrollWheelZoom={true}>

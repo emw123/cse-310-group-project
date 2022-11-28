@@ -1,7 +1,6 @@
 import React from 'react'
 
-function Sidebar() {
-
+function Sidebar(props) {
   return (
     <div className='Sidebar'>
         <nav>
@@ -13,6 +12,7 @@ function Sidebar() {
             <button id='guess2'>mexico</button>
 
             <p id='questions'></p>
+            <p id='country'>{props.country}</p>
         </div>
 
     </div>
