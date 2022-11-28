@@ -1,20 +1,4 @@
 import firebaseData from "../firebaseData";
-// let data = {
-//     1:{
-//         Name: "USA",
-//         id: 1,
-//         1:"question 1-1",
-//         2:"question 1-2",
-//         3:"question 1-3"
-//     },
-//     2:{
-//         Name: "Mexico",
-//         id: 2,
-//         1:"question 2-1",
-//         2:"question 2-2",
-//         3:"question 2-3"
-//     }
-// }
 
 let i = 1;
 let num = 1
