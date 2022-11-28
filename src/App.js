@@ -11,40 +11,12 @@ import Map from './components/Map'
 
 function App() {
   const [country, setCountry] = useState("");
-  useEffect(()=>{
-    db.collection("country").onSnapshot((snapshot) => {
-      console.log(snapshot.docs.map((doc) => ({
-        id: doc.id,
-        data: doc.data(),
-      })))
-      setCountry(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      );
-    });
-    load();
-  }, [])
+  useEffect(()=>load(), [])
 
-  const submit = (e) => {
-    e.preventDefault();
-    console.log(country[0]["data"]["fact1"]);
-    // db.collection("country").onSnapshot((snapshot) => {
-    // console.log(snapshot.docs.map((doc) => ({
-    //   id: doc.id,
-    //   data: doc.data(),
-    // })))})
-    // db.collection("country").get({
-    //   name: country
-    // });
-  
-    //setCountry(country);
-  };
   return (
     <div className='App'>
-      <Sidebar/>
-      <Map/>
+      <Sidebar country={country}/>
+      <Map setCountry={setCountry}/>
     </div>
   );
 }
