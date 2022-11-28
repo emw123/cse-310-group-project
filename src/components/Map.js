@@ -1,17 +1,21 @@
 import '../App.css';
 import React from 'react';
-import { MapContainer, TileLayer, useMapEvent} from 'react-leaflet'
+import { MapContainer, TileLayer, useMapEvent, Polygon} from 'react-leaflet'
+import features from '../map/map.js'
 
 
-//This logs the latitude and longitude in console
-function MyComponent() {
-  const map = useMapEvent('click', (e) => {
-    console.log([e.latlng.lat,e.latlng.lng]);
-    
-  })
+const countryPolygons=features.map( features=> <Polygon 
+  pathOptions={{ color: 'clear' }} 
+  positions={(features.geometry.coordinates[0]) } 
+  eventHandlers={({
+    click: () => {
+      console.log(features.properties.name)
+    },
+  })}
 
-  return null
-}
+/>);
+
+
 
 
 function Map() {
@@ -23,7 +27,8 @@ function Map() {
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    <MyComponent />
+    
+    {countryPolygons}
   </MapContainer>
   );
 }
