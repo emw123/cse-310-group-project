@@ -13,6 +13,10 @@ function App() {
   const [country, setCountry] = useState("");
   useEffect(()=>{
     db.collection("country").onSnapshot((snapshot) => {
+      console.log(snapshot.docs.map((doc) => ({
+        id: doc.id,
+        data: doc.data(),
+      })))
       setCountry(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -20,32 +24,28 @@ function App() {
         }))
       );
     });
-    console.log(country);
     load();
   }, [])
 
   const submit = (e) => {
     e.preventDefault();
-    db.collection("country").add({
-      name: country,
-    });
+    console.log(country[0]["data"]["fact1"]);
+    // db.collection("country").onSnapshot((snapshot) => {
+    // console.log(snapshot.docs.map((doc) => ({
+    //   id: doc.id,
+    //   data: doc.data(),
+    // })))})
+    // db.collection("country").get({
+    //   name: country
+    // });
   
-    setCountry("");
+    //setCountry(country);
   };
-
   return (
     <div className='App'>
       <Sidebar/>
       <Map/>
-      <input
-          type="text"
-          placeholder="country"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-        />
-      <button onClick={submit}>Submit</button>
     </div>
-    
   );
 }
 

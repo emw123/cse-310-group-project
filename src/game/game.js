@@ -1,36 +1,4 @@
-import db from "../firebase"
-import {doc, getDocs, collection} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import App from "../App"
-
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, 'bsojn27@gmail.com', '123456')
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
-let data = {
-    1:{
-        Name: "USA",
-        id: 1,
-        1:"question 1-1",
-        2:"question 1-2",
-        3:"question 1-3"
-    },
-    2:{
-        Name: "Mexico",
-        id: 2,
-        1:"question 2-1",
-        2:"question 2-2",
-        3:"question 2-3"
-    }
-}
+import firebaseData from "../firebaseData";
 
 let i = 1;
 let num = 1
@@ -43,40 +11,27 @@ function load(){ //initializes the guess and next question buttons. Called on lo
     document.getElementById("guess2").addEventListener("click",() => get_question(get_guess("guess2",num),num,i)); //^
 }
 
-function theDocs(){
-const ref = collection(db, 'country')
-getDocs(ref)
-    .then((snapshot) => {
-        let countries = [];
-        snapshot.docs.forEach((doc) => {
-          countries.push({ ...doc.data()})
-        })
-        console.log(countries) //displays documents when the page was loaded
-    })
-}
 function start_game(){
-    //theDocs();n
-    //console.log(doc(db,'country','canada'));
-    // console.log(db.collection('country')['canada'])
-    //console.log(App);
+    //console.log(firebaseData[0]);
     i = 1
     document.getElementById('questions').innerHTML = "";
     num = Math.floor((Math.random() * 2) + 1); //makes a random number to choose country by its index
-    console.log('Answer: '+data[num]['Name'])
-    document.getElementById('questions').innerHTML += data[num][i] + "<br />" //displays the first question as soon as you click start
+    console.log('Answer: '+firebaseData[num]['id'])
+    document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact1"] + "<br />" //displays the first question as soon as you click start
     i++
     document.getElementById("next").textContent='Next'
 }
 
 function get_question(bool, num, qnum){
     if (bool === false) {
+        console.log(firebaseData);
     if (document.getElementById('questions').innerHTML === ""){
         start_game()
     }
     else{
         if (i > 3){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
         else{
-        document.getElementById('questions').innerHTML += data[num][qnum] + "<br />" //gets and displays question from database/json
+        document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact"+qnum.toString()] + "<br />" //gets and displays question from database/json
         // console.log(data[num][qnum])
         }
         i++;
@@ -90,7 +45,7 @@ function get_guess(str,num){
     return bool;
 }
 function check(guess,num){
-    if (guess === data[num]['Name']){ //compares name of button clicked to the name of country selected in start_game()
+    if (guess === firebaseData[num]["id"]){ //compares name of button clicked to the name of country selected in start_game()
     console.log("you win");
     document.getElementById('questions').innerHTML = "You win"
     return true;
