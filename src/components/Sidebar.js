@@ -1,6 +1,4 @@
-import React from 'react'
-
-function Sidebar(props) {
+export default function Sidebar(props) {
   return (
     <div className='Sidebar'>
         <nav>
@@ -16,7 +14,5 @@ function Sidebar(props) {
         </div>
 
     </div>
-  );
+  )
 }
-
-export default Sidebar;
