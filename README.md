@@ -1,3 +1,28 @@
+
+# Overview
+
+This project was created to show a fun and interactive way to learn Geography and facts about different countries that are around the world. 
+
+# Development Environment
+
+For this software, we used Java Script and React. We used the Firestore database to store all of the countries and data for our game. 
+
+
+# Collaborators
+
+Luke Nethercott, Bryson Williams , Emma Ward, Aidan Edwards, Joseph Carlson
+
+# Useful Websites
+https://www.youtube.com/watch?v=hQAHSlTtcmY
+https://firebase.google.com/docs/firestore/
+
+# Future Work
+
+{Make a list of things that you need to fix, improve, and add in the future.}
+Add increasing difficulties using countries and cities
+Add more countries into the database
+Include a player score with each play through.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
