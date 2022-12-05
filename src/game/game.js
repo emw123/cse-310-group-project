@@ -15,7 +15,7 @@ function start_game(){
     //console.log(firebaseData[0]);
     i = 1
     document.getElementById('questions').innerHTML = "";
-    num = Math.floor((Math.random() * 4) + 1); //makes a random number to choose country by its index
+    num = Math.floor((Math.random() * 8) + 1); //makes a random number to choose country by its index
     console.log('Answer: '+firebaseData[num]['id'])
     document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact1"] + "<br />" //displays the first question as soon as you click start
     i++
@@ -23,20 +23,17 @@ function start_game(){
 }
 
 function get_question(bool, num, qnum){
-    if (bool === false) {
-        console.log(firebaseData);
     if (document.getElementById('questions').innerHTML === ""){
         start_game()
     }
     else{
-        if (i > 3){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
+        if (i > 5){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
         else{
-        document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact"+qnum.toString()] + "<br />" //gets and displays question from database/json
-        // console.log(data[num][qnum])
+        document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact"+qnum.toString()] + "<br />" //gets and displays question from database
         }
         i++;
     }}
-}
+
 
 function get_guess(str,num){
     var guess = document.getElementById(str).innerHTML; //finds the name of the button you clicked
@@ -47,7 +44,7 @@ function get_guess(str,num){
 function check(guess,num){
     if (guess === firebaseData[num]["id"]){ //compares name of button clicked to the name of country selected in start_game()
     console.log("you win");
-    document.getElementById('questions').innerHTML = "You win"
+    document.getElementById('questions').innerHTML = "You win, the correct answer was " + guess
     return true;
     }
     else{
@@ -56,4 +53,4 @@ function check(guess,num){
     }
 }
 
-export {start_game, load}
+export {start_game, load, check, num, get_question, i}
