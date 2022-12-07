@@ -4,7 +4,8 @@ import { MapContainer, TileLayer, GeoJSON} from 'react-leaflet'
 import map from '../map/map.json'
 import {check, num, i, get_question} from '../game/game.js'
 
-function onEachFeature(feature, layer) {
+// mouseover and click listeners for popup and user input
+function onEachFeature(feature, layer) { 
   layer.bindPopup(feature.properties.name)
   layer.on('mouseover', function (e) {
     this.openPopup()
@@ -12,13 +13,13 @@ function onEachFeature(feature, layer) {
   layer.on('mouseout', function (e) {
         this.closePopup()
     })
-
   layer.on('click', function (e) {
     console.log(feature.properties.name)
     get_question(check(feature.properties.name,num),num,i)
   })
 }
 
+// map component
 export default function Map() {
   return (
     <MapContainer center={[35, -90]} zoom={3} scrollWheelZoom={true}>
@@ -27,7 +28,6 @@ export default function Map() {
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       noWrap = {true}
     />
-    
     <GeoJSON
       data = {map.features}
       style = {{fillOpacity: '0'}}
