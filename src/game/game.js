@@ -31,7 +31,10 @@ function get_question(bool, num, qnum){
         start_game()
     }
     else{
-        if (i > 5){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
+        if (i === 6){document.getElementById('questions').innerHTML = "Incorrect. The correct answer was " + firebaseData[num]["id"] + "<br>" + "click next to play again"} // checks how many times a question has been displayed will be 5 but for testing 3
+        else if(i > 6) {
+            start_game();
+        }
         else{
         document.getElementById('questions').innerHTML += i+ '. ' + firebaseData[num]["data"]["fact"+qnum.toString()] + "<br>" //gets and displays question from database/json
         // console.log(data[num][qnum])
@@ -40,12 +43,7 @@ function get_question(bool, num, qnum){
     }}
 }
 
-function get_guess(str,num){
-    var guess = document.getElementById(str).innerHTML; //finds the name of the button you clicked
-    console.log('Guess: '+guess)
-    var bool = check(guess,num)
-    return bool;
-}
+
 function check(guess,num){
     if (guess === firebaseData[num]["id"]){ //compares name of button clicked to the name of country selected in start_game()
     console.log("you win");
