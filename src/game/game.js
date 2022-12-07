@@ -7,8 +7,8 @@ function load(){ //initializes the guess and next question buttons. Called on lo
     const nextButton=document.getElementById("next")
     nextButton.addEventListener("click",() => get_question(false, num, i)); //displays next question
     nextButton.textContent='Start'
-    document.getElementById("guess").addEventListener("click",() => get_question(get_guess("guess",num),num,i)); //sees what guess you made
-    document.getElementById("guess2").addEventListener("click",() => get_question(get_guess("guess2",num),num,i)); //^
+    // document.getElementById("guess").addEventListener("click",() => get_question(get_guess("guess",num),num,i)); //sees what guess you made
+    // document.getElementById("guess2").addEventListener("click",() => get_question(get_guess("guess2",num),num,i)); //^
 }
 
 function start_game(){
