@@ -2,11 +2,13 @@ import '../App.css'
 import React from 'react'
 import { MapContainer, TileLayer, GeoJSON} from 'react-leaflet'
 import map from '../map/map.json'
+import {check, num, i, get_question} from '../game/game.js'
 
 function onEachFeature(feature, layer) {
   layer.bindPopup(feature.properties.name)
   layer.on('click', function (e) {
     console.log(feature.properties.name)
+    get_question(check(feature.properties.name,num),num,i)
   })
 }
 
