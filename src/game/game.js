@@ -31,7 +31,7 @@ function get_question(bool, num, qnum){
     else{
         if (i > 3){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
         else{
-        document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact"+qnum.toString()] + "<br />" //gets and displays question from database/json
+        document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact"+qnum.toString()] + "\n" //gets and displays question from database/json
         // console.log(data[num][qnum])
         }
         i++;

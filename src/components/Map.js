@@ -6,6 +6,13 @@ import {check, num, i, get_question} from '../game/game.js'
 
 function onEachFeature(feature, layer) {
   layer.bindPopup(feature.properties.name)
+  layer.on('mouseover', function (e) {
+    this.openPopup()
+    })
+  layer.on('mouseout', function (e) {
+        this.closePopup()
+    })
+
   layer.on('click', function (e) {
     console.log(feature.properties.name)
     get_question(check(feature.properties.name,num),num,i)
