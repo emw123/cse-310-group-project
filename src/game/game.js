@@ -49,7 +49,7 @@ function get_guess(str,num){
 function check(guess,num){
     if (guess === firebaseData[num]["id"]){ //compares name of button clicked to the name of country selected in start_game()
     console.log("you win");
-    document.getElementById('questions').innerHTML = "You win, the country was " +guess
+    document.getElementById('questions').innerHTML = "You win, the country was " +guess+'<br/>'
     return true;
     }
     else{
