@@ -8,9 +8,6 @@ function onEachFeature(feature, layer) {
   layer.bindPopup(feature.properties.name)
 }
 
-
-
-
 function Map() {
 
   return (
