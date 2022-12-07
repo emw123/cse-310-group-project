@@ -15,9 +15,9 @@ function start_game(){
     //console.log(firebaseData[0]);
     i = 1
     document.getElementById('questions').innerHTML = "";
-    num = Math.floor((Math.random() * 2) + 1); //makes a random number to choose country by its index
+    num = Math.floor((Math.random() * 21) + 1); //makes a random number to choose country by its index
     console.log('Answer: '+firebaseData[num]['id'])
-    document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact1"] + "<br />" //displays the first question as soon as you click start
+    document.getElementById('questions').innerHTML += "1. " + firebaseData[num]["data"]["fact1"] + "<br />" //displays the first question as soon as you click start
     i++
     document.getElementById("next").textContent='Next'
 }
@@ -29,9 +29,9 @@ function get_question(bool, num, qnum){
         start_game()
     }
     else{
-        if (i > 3){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
+        if (i > 5){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
         else{
-        document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact"+qnum.toString()] + "\n" //gets and displays question from database/json
+        document.getElementById('questions').innerHTML += i+ '. ' + firebaseData[num]["data"]["fact"+qnum.toString()] + "<br>" //gets and displays question from database/json
         // console.log(data[num][qnum])
         }
         i++;
