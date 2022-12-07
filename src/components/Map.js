@@ -6,7 +6,7 @@ import map from '../map/map.json'
 function onEachFeature(feature, layer) {
   layer.bindPopup(feature.properties.name)
   layer.on('click', function (e) {
-    console.log(feature.properties.name);
+    console.log(feature.properties.name)
   })
 }
 
