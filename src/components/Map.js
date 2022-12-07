@@ -2,8 +2,6 @@ import '../App.css'
 import React from 'react'
 import { MapContainer, TileLayer, GeoJSON} from 'react-leaflet'
 import map from '../map/map.json'
-import { click } from '@testing-library/user-event/dist/click'
-
 
 function onEachFeature(feature, layer) {
   layer.bindPopup(feature.properties.name)
@@ -12,7 +10,7 @@ function onEachFeature(feature, layer) {
   })
 }
 
-function Map() {
+export default function Map() {
   return (
     <MapContainer center={[35, -90]} zoom={3} scrollWheelZoom={true}>
     <TileLayer
@@ -29,4 +27,3 @@ function Map() {
   </MapContainer>
   )
 }
-export default Map;
