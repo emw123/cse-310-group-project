@@ -13,6 +13,7 @@ function load(){ //initializes the guess and next question buttons. Called on lo
 
 function start_game(){
     //console.log(firebaseData[0]);
+    const nextButton=document.getElementById("instructions")
     i = 1
     document.getElementById('questions').innerHTML = "";
     num = Math.floor((Math.random() * 21) + 1); //makes a random number to choose country by its index
@@ -20,6 +21,7 @@ function start_game(){
     document.getElementById('questions').innerHTML += "1. " + firebaseData[num]["data"]["fact1"] + "<br />" //displays the first question as soon as you click start
     i++
     document.getElementById("next").textContent='Next'
+    nextButton.textContent=''
 }
 
 function get_question(bool, num, qnum){
