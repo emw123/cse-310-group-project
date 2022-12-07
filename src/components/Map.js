@@ -25,9 +25,6 @@ function Map() {
       data = {map.features}
       style = {{fillOpacity: '0'}}
       onEachFeature={onEachFeature}
-      eventHandlers={({
-        // click:()=>console.log(map.feature.properties.name)
-      })}
     />
   </MapContainer>
   )
