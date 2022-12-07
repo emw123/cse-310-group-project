@@ -1,4 +1,4 @@
-export default function Sidebar(props) {
+export default function Sidebar() {
   return (
     <div className='Sidebar'>
         <nav>
@@ -6,11 +6,8 @@ export default function Sidebar(props) {
         </nav>
         <div className='sidebarText'>
             <button id='next'></button>
-            <button id='guess'>unitedstates</button>
-            <button id='guess2'>mexico</button>
 
             <p id='questions'></p>
-            <p id='country'>{props.country}</p>
         </div>
 
     </div>

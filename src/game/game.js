@@ -7,17 +7,17 @@ function load(){ //initializes the guess and next question buttons. Called on lo
     const nextButton=document.getElementById("next")
     nextButton.addEventListener("click",() => get_question(false, num, i)); //displays next question
     nextButton.textContent='Start'
-    document.getElementById("guess").addEventListener("click",() => get_question(get_guess("guess",num),num,i)); //sees what guess you made
-    document.getElementById("guess2").addEventListener("click",() => get_question(get_guess("guess2",num),num,i)); //^
+    // document.getElementById("guess").addEventListener("click",() => get_question(get_guess("guess",num),num,i)); //sees what guess you made
+    // document.getElementById("guess2").addEventListener("click",() => get_question(get_guess("guess2",num),num,i)); //^
 }
 
 function start_game(){
     //console.log(firebaseData[0]);
     i = 1
     document.getElementById('questions').innerHTML = "";
-    num = Math.floor((Math.random() * 2) + 1); //makes a random number to choose country by its index
+    num = Math.floor((Math.random() * 21) + 1); //makes a random number to choose country by its index
     console.log('Answer: '+firebaseData[num]['id'])
-    document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact1"] + "<br />" //displays the first question as soon as you click start
+    document.getElementById('questions').innerHTML += "1. " + firebaseData[num]["data"]["fact1"] + "<br />" //displays the first question as soon as you click start
     i++
     document.getElementById("next").textContent='Next'
 }
@@ -29,9 +29,9 @@ function get_question(bool, num, qnum){
         start_game()
     }
     else{
-        if (i > 3){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
+        if (i > 5){console.log("No more questions")} // checks how many times a question has been displayed will be 5 but for testing 3
         else{
-        document.getElementById('questions').innerHTML += firebaseData[num]["data"]["fact"+qnum.toString()] + "<br />" //gets and displays question from database/json
+        document.getElementById('questions').innerHTML += i+ '. ' + firebaseData[num]["data"]["fact"+qnum.toString()] + "<br>" //gets and displays question from database/json
         // console.log(data[num][qnum])
         }
         i++;
@@ -47,7 +47,7 @@ function get_guess(str,num){
 function check(guess,num){
     if (guess === firebaseData[num]["id"]){ //compares name of button clicked to the name of country selected in start_game()
     console.log("you win");
-    document.getElementById('questions').innerHTML = "You win"
+    document.getElementById('questions').innerHTML = "You win, the country was " +guess
     return true;
     }
     else{
@@ -56,4 +56,4 @@ function check(guess,num){
     }
 }
 
-export {start_game, load}
+export {start_game, load, i, num, get_question, check}
