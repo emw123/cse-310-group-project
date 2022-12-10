@@ -19,7 +19,10 @@ function onEachFeature(feature, layer) {
   })
 }
 
-// map component
+// In the return statement there are 2 different visualizations of the map
+// TileLayer links to an open source map, but has no important geographical data
+// GeoJSON has all the latitude and longitude information for every country, as well as their names.
+//    The event handler onEachFeature in GeoJSON links back to the onEachFeature function.
 export default function Map() {
   return (
     <MapContainer center={[35, -90]} zoom={3} scrollWheelZoom={true}>
